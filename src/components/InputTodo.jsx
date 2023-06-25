@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from 'prop-types';
 
 const InputTodo = ({ addTodoItem }) => {
   const [title, setTitle] = useState("");
@@ -8,7 +9,7 @@ const InputTodo = ({ addTodoItem }) => {
     setTitle(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     if (title.trim()) {
       addTodoItem(title);
       setTitle('');
@@ -33,5 +34,9 @@ const InputTodo = ({ addTodoItem }) => {
     </>
   );
 };
+
+InputTodo.propTypes = {
+  addTodoItem: PropTypes.func.isRequired,
+}
 
 export default InputTodo;
